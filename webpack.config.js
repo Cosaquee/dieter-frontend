@@ -18,7 +18,7 @@ module.exports = {
 	output: {
 		path: __dirname + '/public',
 		filename: '[name].js',
-		chunkFilename: '[name].[id].js'
+		chunkFilename: '[name].[id].js',
 	},
 	module: {
 		rules: [
@@ -51,5 +51,10 @@ module.exports = {
 			filename: '[name].css'
 		})
 	],
-	devtool: prod ? false : 'source-map'
+	devtool: prod ? false : 'source-map',
+	devServer: {
+		historyApiFallback: true,
+		contentBase: path.join(__dirname, '/public'),
+		writeToDisk: true
+	}
 };
