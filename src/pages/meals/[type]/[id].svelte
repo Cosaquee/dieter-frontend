@@ -1,7 +1,7 @@
 <script>
   import { params } from "@sveltech/routify";
   import user from "./../../../store/auth.js";
-  import meals from "./../../../store/auth.js";
+  import meals from "./../../../store/m.js";
   import config from "./../../../aws.js";
 
   $: meal = fetchMeal($params["type"], $params["id"]);
@@ -23,8 +23,8 @@
     }
   }
 
-  function addToCart() {
-    meals.addMeal({ name: meal.name, ingredients: ingredients, type: type });
+  function addToCart(name) {
+    meals.addMeal({ name: name, ingredients: ingredients, type: $params["type"]});
     openCart = false;
   }
 </script>
@@ -58,7 +58,7 @@
 
     <section class="mb-2">
       <p class="text-3xl">Ingredients</p>
-      <ul class="ml-2 list-disc list-outside">
+      <ul class="ml-12 list-disc list-outside">
         {#each meal.ingredients as ingredient}
           <li class="text-xl">{ingredient}</li>
         {/each}
@@ -67,7 +67,7 @@
 
     <section class="mb-2">
       <p class="text-3xl">Steps</p>
-      <ul class="ml-2 list-disc list-outside">
+      <ul class="ml-12 list-disc list-outside">
         {#each meal.steps as step}
           <li class="text-xl">{step}</li>
         {/each}
@@ -75,7 +75,6 @@
     </section>
   </div>
 </div>
-{ingredients}
 {#if openCart}
   <div
     class="fixed bottom-0 inset-x-0 px-4 pb-6 sm:inset-0 sm:p-0 sm:flex
@@ -156,7 +155,7 @@
         sm:grid-flow-row-dense">
         <span class="flex w-full rounded-md shadow-sm sm:col-start-2">
           <button
-            on:click={() => addToCart()}
+            on:click={() => addToCart(meal.name)}
             type="button"
             class="inline-flex justify-center w-full rounded-md border
             border-transparent px-4 py-2 bg-indigo-600 text-base leading-6

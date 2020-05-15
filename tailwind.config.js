@@ -1,7 +1,13 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
-  theme: {  
+  theme: {
+    fontFamily: {
+
+      'display': ['Inconsolata'],
+      'body': ['Inconsolata'],
+    }
+
   },
   variants: {
     // Some useful comment
