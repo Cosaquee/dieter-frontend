@@ -13,7 +13,6 @@
 
   onMount(async () => {
     try {
-      console.log("On mount");
       let u = await Auth.currentAuthenticatedUser();
       user.authUser(u);
     } catch (error) {
