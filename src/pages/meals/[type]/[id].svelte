@@ -10,7 +10,7 @@
 
   async function fetchMeal(type, id) {
     const res = await fetch(
-      `${config["apiGateway"]["URL"]}/meals/${type}/${id}`,
+      `${process.env.API_URL}/meals/${type}/${id}`,
       {
         headers: {
           Authorization: `${$user.token["jwtToken"]}`

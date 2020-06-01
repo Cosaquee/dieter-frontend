@@ -4,3 +4,4 @@ public/bundle.*
 package-lock.json
 yarn.lock
 aws.js
+.env

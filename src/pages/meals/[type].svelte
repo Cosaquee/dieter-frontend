@@ -11,8 +11,8 @@
     $: meals = handleGetMeals($params["type"]);
 
     async function handleGetMeals(type) {
-        console.log($params["type"]);
-        const res = await fetch(`${config["apiGateway"]["URL"]}/meals/${$params["type"]}`, {
+      console.log($params["type"]);
+      const res = await fetch(`${process.env.API_URL}/meals/${$params["type"]}`, {
             headers: { 
              'Authorization': `${$user.token["jwtToken"]}`
              }
