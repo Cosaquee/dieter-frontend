@@ -25,7 +25,8 @@
     "dev": "run-p watch:routify watch:webpack watch:tailwind",
     "watch:webpack": "webpack-dev-server",
     "watch:routify": "routify -d",
-    "watch:tailwind": "postcss public/global.css -o public/index.css -w"
+    "watch:tailwind": "postcss public/global.css -o public/index.css -w",
+    "build": "cross-env NODE_ENV=production webpack"
   },
   "dependencies": {
     "aws-amplify": "^3.0.8",
